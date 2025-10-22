@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford</title>    
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/carousel.js"></script>
+
+    <style>
+      .botao {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+
+      .botao:hover {
+        background-color: #555;
+      }
+
+      .esquerda {
+        left: 20px;
+      }
+
+      .direita {
+        right: 20px;
+      }
+
+      /* Pra garantir que os botões fiquem no mesmo bloco que o carrossel */
+      #carousel {
+        position: relative;
+        height: 750px;
+        background-size: cover;
+      }
+    </style>
+</head>
+
+<body>
+    <header>       
+        <div>
+            <img src="img/logo-ford-256.png" width="150" class="logo" />
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lancamento.html">Lançamento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="carousel" style="height:800px;background-size:cover;">
+            <button class="botao esquerda">&lt;</button>
+            <button class="botao direita">&gt;</button>
+        </div>
+        <div id="carousel-title"></div>
+
+        <script>
+            // Itens do carrossel
+            const carouselItems = [
+                { image: 'img/imagem_1.jpg', title: 'Ford Ranger Black 2022, verifique as novidades!', url: 'lancamento.html' },
+                { image: 'img/imagem_2.jpg', title: 'Ford, Nossa história!', url: 'contato.html' },
+                { image: 'img/imagem_3.jpg', title: 'Novo Ford Bronco Sport 2022', url: 'lancamento.html' }
+            ];
+
+            // Inicia o carrossel a cada 2 segundos
+            Carousel.Start(carouselItems, 2000);
+        </script>
+    </main>
+
+    <footer>
+        <nav id="social">
+            <ul>
+                <li><span class="redesociais">Redes Sociais</span></li>
+                <li><a href="#" title="Facebook"><img src="img/facebook-50.png" alt="Facebook"></a></li>
+                <li><a href="#" title="YouTube"><img src="img/youtube-squared-50.png" alt="YouTube"></a></li>
+                <li><a href="#" title="Instagram"><img src="img/instagram-logo-50.png" alt="Instagram"></a></li>
+            </ul>
+        </nav>
+        <div>
+           <img src="img/ford-96.png" width="70" alt="Logo Ford" />
+        </div>
+    </footer>    
+</body>
+</html>

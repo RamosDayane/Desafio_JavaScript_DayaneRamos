@@ -1,72 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ford</title>    
-    <link href="css/reset.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/form.css" rel="stylesheet">
-    <script src="js/form.js"></script>
-</head>
-<body>
-    <header>       
-        <div>
-            <img src="img/logo-ford-256.png" width="150" class="logo" />
-        </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="lancamento.html">Lançamento</a>
-                </li>
-                <li>
-                    <a href="contato.html">Contato</a>
-                </li>
-            </ul>
-        </nav>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ford</title>
+  <link href="css/reset.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/form.css" rel="stylesheet">
 
-    </header>
-    <main>
-        <div class="forms">
-            <div>
-                <img src="img/xls 2.2 diesel.jpg">
-            </div>
-            <div>
-                <h2 class="titulo">Sobre Você</h2>
-            <form id="form-contato">
-                <input type="text" name="nome" placeholder="NOME*" class="fordform" required>
-                <input type="text" name="email" placeholder="E-MAIL*" class="fordform" required>
-                <input type="text" name="cpf" placeholder="CPF*" class="fordform" required>
-                <input type="text" name="sobrenome" placeholder="SOBRENOME*" class="fordform" required>
-                <input type="text" name="telefone" placeholder="TELEFONE*" class="fordform" required>
-                <select name="contato" class="fordform" required>
-                    <option selected>COMO DESEJA SER CONTATADO</option>
-                    <option>TELEFONE</option>
-                    <option>E-MAIL</option>
-                </select>
-            <button type="submit">Enviar</button>
-            <div id="msg-confirmaco" style="margin-top:15px; color:blue; font-weight:bold;"></div>
-            </form>
-            <script src="js/forms.js"></script>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <nav id="social">
-            <ul>
-                <li><span class="redesociais">Redes Sociais</span></li>
-                <li><a href="#" title="Facebook"><img src="img/facebook-50.png"></a></li>
-                <li><a href="#" title="YouTube"><img src="img/youtube-squared-50.png"></a></li>
-                <li><a href="#" title="Instagram"><img src="img/instagram-logo-50.png"></a></li>
-            </ul>
-        </nav>
-        <div>
-           <img src="img/ford-96.png" width="70"  />
-        </div>
-    </footer>    
+  <!-- CSS do alerta -->
+  <style>
+   /* ================= Balão de alerta ================= */
+.msg-balao {
+    display: none; /* começa escondido */
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white !important; /* fundo branco */
+    border: 2px solid white !important; /* borda branca */
+    color: black !important; /* texto preto */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 9999;
+    width: 300px;
+    max-width: 90%;
+}
+
+/* Texto interno do balão */
+.msg-text {
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Botão OK dentro do balão */
+.msg-ok {
+    background-color: #1351d8; /* azul escuro */
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.msg-ok:hover,
+.msg-ok:active {
+    background-color: #0f3a9b; /* azul um pouco mais claro quando clica ou passa o mouse */
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <img src="img/logo-ford-256.png" width="150" class="logo" alt="Logo Ford" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lancamento.html">Lançamento</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="forms">
+      <div>
+        <img src="img/xls 2.2 diesel.jpg" alt="Carro Ford XLS 2.2 Diesel" class="photocarform">
+      </div>
+      <div>
+        <h2 class="titulo">Sobre Você</h2>
+        <form id="form-contato">
+          <input type="text" name="nome" placeholder="NOME*" class="fordform" required>
+          <input type="text" name="sobrenome" placeholder="SOBRENOME*" class="fordform" required>
+          <input type="email" name="email" placeholder="E-MAIL*" class="fordform" required>
+          <input type="text" name="cpf" placeholder="CPF*" class="fordform" required>
+          <input type="text" name="telefone" placeholder="TELEFONE*" class="fordform" required>
+          <select name="contato" class="fordform" required>
+            <option value="" disabled selected>COMO DESEJA SER CONTATADO</option>
+            <option value="telefone">TELEFONE</option>
+            <option value="email">E-MAIL</option>
+          </select>
+
+          <div class="textosLGPD">
+            Os dados serão utilizados para entrar em contato com você sobre nossos produtos e serviços.  
+            Leia e aceite os <a href="termos.html" target="_blank">Termos e Condições</a>.
+          </div>
+
+          <div class="textosLGPD">
+            <input type="checkbox" name="Termos" id="check1" onchange="bloquear(this);">
+            <label for="check1">Sim, li e concordo com os vossos termos</label>
+          </div>
+
+          <div class="textosLGPD">
+            <input type="checkbox" id="check2" name="Novidades">
+            <label for="check2">Sim, também quero receber descontos e novidades!</label>
+          </div>
+
+          <button type="submit" id="btnLGPD" disabled class="desabilitado">ENVIAR</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <nav id="social">
+      <ul>
+        <li><span class="redesociais">Redes Sociais</span></li>
+        <li><a href="#" title="Facebook"><img src="img/facebook-50.png"></a></li>
+        <li><a href="#" title="YouTube"><img src="img/youtube-squared-50.png"></a></li>
+        <li><a href="#" title="Instagram"><img src="img/instagram-logo-50.png"></a></li>
+      </ul>
+    </nav>
+    <div>
+      <img src="img/ford-96.png" width="70" alt="Logo Ford" />
+    </div>
+  </footer>
+
+  <!-- Alerta com botão OK -->
+  <div id="alerta" class="alerta">
+    <p id="textoAlerta"></p>
+    <button id="okAlerta">OK</button>
+  </div>
+
+  <script>
+    // função que libera o botão ao aceitar termos
+    function bloquear(check) {
+      const btn = document.getElementById("btnLGPD");
+      if (check.checked) {
+        btn.disabled = false;
+        btn.classList.remove("desabilitado");
+      } else {
+        btn.disabled = true;
+        btn.classList.add("desabilitado");
+      }
+    }
+
+    // mostrar alerta ao enviar
+    document.getElementById("form-contato").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = this.nome.value.trim();
+
+      if (nome === "") return;
+
+      const alerta = document.getElementById("alerta");
+      const texto = document.getElementById("textoAlerta");
+      const botaoOk = document.getElementById("okAlerta");
+
+      texto.textContent = `Obrigado(a), ${nome}! Seus dados foram enviados com sucesso.`;
+      alerta.style.display = "block";
+
+      botaoOk.onclick = function() {
+        alerta.style.display = "none";
+      };
+
+      // fecha automaticamente após 6 segundos
+      setTimeout(() => alerta.style.display = "none", 6000);
+
+      // limpa o formulário
+      e.target.reset();
+    });
+  </script>
 </body>
 </html>

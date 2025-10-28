@@ -1,10 +1,11 @@
+/* ===== Estilo dos campos do formulário ===== */
 .fordform {
     display: block;
     width: 300px;
     border: 1px solid #cccccc;
     border-radius: 10px;
     height: 26px;
-    margin: 8px;
+    margin: 8px 0;
     font-size: 13px;
     padding: 5px;
 }
@@ -15,40 +16,110 @@ select.fordform {
     color: #807d7d;
 }
 
-input:focus-visible {
-    outline: none;
-}
-
+input:focus-visible,
 select:focus-visible {
     outline: none;
 }
 
-main div {
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
+/* ===== Container do formulário ===== */
 .forms {
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;     /* centraliza verticalmente */
+    gap: 40px;               /* espaço entre imagem e formulário */
+    flex-wrap: wrap;         /* quebra em telas menores */
+    padding: 20px 10px;
+}
+
+.photocarform {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
     display: block;
-    text-align: center;
 }
 
-h2 {
-    text-align: left;
+/* ===== Títulos ===== */
+h2, .titulo {
     font-weight: 800;
-}
-
-
-button {
-    width: 200px;
-    height: 40px;
-    margin-right: 8px;
-    float: right;
-}
-
-.titulo {
+    text-align: left;
     margin-left: 8px;
+}
+
+/* ===== Botão ===== */
+.forms button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 18px;
+    font-size: 13px;
+    border: 2px solid #1351d8;
+    border-radius: 10px;
+    background-color: #1351d8;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.forms button:hover {
+    background-color: #0d3ca3;
+}
+
+/* ===== Texto de LGPD ===== */
+.textosLGPD {
+    display: block;
+    width: 300px;
+    margin: 8px 0;
+    font-size: 13px;
+    padding: 5px;
+    text-align: justify;
+}
+
+/* ===== Botão desabilitado ===== */
+.desabilitado {
+    background-color: #999999;
+    color: #fff;
+    border: 1px solid #666666;
+    cursor: not-allowed;
+}
+
+/* ===== Balão de confirmação ===== */
+.alerta {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; /* fundo branco */
+    border: 2px solid #edeef2; /* borda azul */
+    color: #eef0f3; /* texto azul */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+    z-index: 9999;
+    width: 300px;
+    max-width: 90%;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Botão dentro do balão */
+.alerta button {
+    background-color: #1351d8;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.alerta button:hover {
+    background-color: #0d3ca3;
+}
+
+/* ===== Animação para aparecer suavemente ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
 }
